@@ -1,0 +1,25 @@
+{
+  "name": "socket.io-benchmarks-v0.9.16",
+  "version": "0.0.0",
+  "description": "benchmarks for socket.io and socket.io-client v0.9.16",
+  "main": "bench.js",
+  "dependencies": {
+    "benchmark": "~1.0.0",
+    "socket.io": "git://github.com/LearnBoost/socket.io.git#0.9",
+    "socket.io-client": "git://github.com/LearnBoost/socket.io-client.git#0.9",
+    "supertest": "~0.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jessewar/socket.io-benchmarks.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/jessewar/socket.io-benchmarks/issues"
+  },
+  "homepage": "https://github.com/jessewar/socket.io-benchmarks"
+}
