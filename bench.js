@@ -3,11 +3,6 @@ var Benchmark = require('benchmark');
 var ioc = require('socket.io-client');
 var io = require('socket.io').listen(server);
 
-io.configure(function () {
-  var transport = process.argv.length >= 2 ? process.argv[2] : null;
-  if (transport) io.set('transports', [transport]);
-  io.set('log level', 1);
-});
 version = "0.9.16";
 
 // creates a socket.io client for the given server
@@ -36,7 +31,7 @@ io.sockets.on('connection', function (socket) {
 
   var options = {
     onStart: function () {
-      console.log("Testing SocketIO v" + version + " using " + process.argv[3] + "...");
+      console.log("Testing SocketIO v0.9.16...");
     },
     onComplete: function () {
       console.log("Mean time for JSON message from server to client back to server: " + this.stats.mean + "\n" +
@@ -50,7 +45,12 @@ io.sockets.on('connection', function (socket) {
   bench.run();
 });
 
-function run() {
+function run(transport) {
+  io.configure(function () {
+    if (transport) io.set('transports', [transport]);
+    io.set('log level', 1);
+  });
+
   // connect to server triggering benchmark to start
   var clientSocket = client(server);
   clientSocket.on('server-message', function (data) {
